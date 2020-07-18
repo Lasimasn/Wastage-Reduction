@@ -1,0 +1,52 @@
+<div class="w3-display-container w3-green" style="height:800px;">
+  <img src="../../assets/video/ezgif.com-video-to-gif.gif" height="100%" width="100%"/>
+  <div class="w3-display-middle w3-center">
+    <span class="hd">Welcome to {{restaurant.name}}</span>
+      
+  </div>
+  <div class="w3-display-bottommiddle">
+      <app-availabilityform></app-availabilityform>
+  </div>
+</div>
+<!-- Optional: some overlay text to describe the video -->
+<section class="content" id="logs"*ngIf="restaurantLogs!=undefined">    
+    <div class="container">
+      <div class="w3-container w3-padding-64">
+        <h1 class="w3-center"><b><i class="fa fa-list" aria-hidden="true"></i>&nbsp;<span class="w3-text-yellow"></span>Logs</b></h1>
+        <div class="w3-padding-32" >
+          <div class="w3-container w3-padding">
+      
+            <!-- Single Assignment Log -->
+            <div class="w3-card-4 w3-round w3-padding" *ngFor="let items of restaurantLogs.logs">
+              <div class="row">
+                <div class="col-md-3">
+                  <h3><b><i class="fa fa-id-card w3-text-yellow" aria-hidden="true"></i>&nbsp;#{{items.id}}</b></h3>
+                  <h4><i class="fa fa-clock w3-text-yellow" aria-hidden="true"></i>&nbsp;{{items.date}}</h4>
+                </div>
+                <div class="col-md-4 w3-padding w3-center">
+                  <h4><img src="../../assets/img/salad.png" height="40px" />&nbsp;Food Donated:&nbsp;{{items.restaurantStatus.foodAvailability}}</h4>
+                </div>
+                <div class="col-md-3">
+                  <h3><img src="../../assets/img/scooter.png" height="30px" />&nbsp;{{items.restaurantStatus.deliveryBoyName}}</h3>
+                  <h4><i class="fa fa-phone w3-text-yellow" aria-hidden="true"></i>&nbsp;{{items.restaurantStatus.mobile}}</h4>
+                </div>
+                <div class="col-md-2">
+                    <h3>Rating:</h3>
+                  <h4><img src="../../assets/img/starYellow.png" height="20px" />&nbsp;{{items.rating}}</h4>
+                </div>
+              </div>
+              
+
+
+             </div>
+           <!--End of Log-->
+
+
+            </div>
+            </div>
+            </div>
+     <!-- <app-restaurant-logs></app-restaurant-logs> -->
+          </div>
+</section>
+
+           

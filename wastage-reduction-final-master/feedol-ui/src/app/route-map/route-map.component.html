@@ -1,0 +1,15 @@
+<div class="w3-bar" style="margin-bottom:80px;"></div>
+<div class="route">
+<div class="timeline">
+ <div class="w3-container" *ngFor="let restaurant of deliveryRoute.logs.restaurants; let i = index">
+  <app-restaurant-card [restaurant] = "restaurant" [i] = "i"></app-restaurant-card>
+ </div>
+ <div class="container right" *ngFor="let charity of deliveryRoute.logs.charities" >
+   <div class="content" style="background-color: #262E31; opacity: 0.8; color: antiquewhite">
+     <h2><b>{{charity.charityName}}</b></h2>
+     <button class="btn btn-success" (click)="onDelivered(charity.username)" *ngIf="charityLogs == null && show">Delivered</button>
+     <p>{{charity.location}}</p>
+   </div>
+ </div>
+</div>
+</div>

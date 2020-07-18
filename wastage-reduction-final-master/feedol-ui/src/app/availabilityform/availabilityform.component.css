@@ -1,0 +1,12 @@
+
+table
+{
+    border-collapse:separate;
+    /* border-spacing:10px 0px; */
+}
+.card{
+    padding-top: 70px;
+ }
+ .border1{
+    border-right: 1px solid gray;
+ }

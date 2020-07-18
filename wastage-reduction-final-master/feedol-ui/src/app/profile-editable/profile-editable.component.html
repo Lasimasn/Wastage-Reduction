@@ -1,0 +1,201 @@
+<div class="container py-5 my-5">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card" style="background-color:#e7e4e4">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <h1><b>Profile</b></h1>
+                          <hr>
+                      </div>
+                  </div>
+          <div class="row">
+            <div class="col-md-12">
+                <div *ngIf="editable=='false'" class="personal-info col-md-12">
+                  <div class="row">
+                    <div class="w3-bar">
+                      <div class="w3-bar-item w3-right">
+                        <img class="pen" name="pencil" class="pencil"   (click)="edit()" src="../../assets/img/pen.png" height="35px" />
+                      </div>
+                    </div>
+                  </div>
+                  <form>
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label">Name:</label> 
+                        <div class="col-8">
+                          <label>{{actor.name}}</label>
+                        </div>
+                     </div> 
+                     <div class="form-group row">
+                        <label class="col-4 col-form-label">Email:</label> 
+                        <div class="col-8">
+                          <label>{{actor.email}}</label>
+                        </div>
+                     </div> 
+                     <div class="form-group row">
+                        <label class="col-4 col-form-label">Mobile No:</label> 
+                        <div class="col-8">
+                          <label>{{actor.mobile}}</label>
+                        </div>
+                     </div> 
+                     <div class="form-group row">
+                        <label class="col-4 col-form-label">Address:</label> 
+                        <div class="col-8">
+                          <label>{{actor.address}}</label>
+                        </div>
+                     </div> 
+                      
+                      <div *ngIf="role != 'deliveryBoy'">
+                          <div class="form-group row">
+                              <label class="col-4 col-form-label">Location:</label> 
+                              <div class="col-8">
+                                <label>{{actor.location}}</label>
+                              </div>
+                           </div> 
+                      </div>
+                      <div *ngIf="role == 'charity'">
+                          <div class="form-group row">
+                              <label class="col-4 col-form-label">Food Req.</label> 
+                              <div class="col-8">
+                                <label>{{actor.foodRequirement}}</label>
+                              </div>
+                           </div> 
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-4 col-form-label">Username:</label> 
+                          <div class="col-8">
+                            <label>{{actor.username}}</label>
+                          </div>
+                       </div> 
+                      
+                        <div class="form-group row">
+                            <label *ngIf="role == 'restaurant'" class="col-4 col-form-label">Certificate No:</label>
+                            <label *ngIf="role == 'charity'" class="col-4 col-form-label">Certificate No:</label>
+                            <label *ngIf="role == 'deliveryBoy'" class="col-4 col-form-label">License No:</label>
+                        
+                            <div *ngIf="role != 'deliveryBoy'" class="col-8">
+                                <label>{{actor.certificateNo}}</label>
+                            </div>
+                            <div *ngIf="role == 'deliveryBoy'" class="col-8">
+                                <label>{{actor.licenseNo}}</label>
+                            </div>
+                        </div>
+                      
+                        <div class="form-group row">            
+                            <label *ngIf="role == 'restaurant'"class="col-4 col-form-label">Certificate Name:</label>
+                            <label *ngIf="role == 'charity'" class="col-4 col-form-label">Certificate Name:</label>
+                            <label *ngIf="role == 'deliveryBoy'" class="col-4 col-form-label">License Name:</label>
+                          
+                            <div *ngIf="role != 'deliveryBoy'" class="col-8">              
+                              <label>{{actor.certificateName}}</label>
+                            </div>
+                            <div *ngIf="role == 'deliveryBoy'" class="col-8">              
+                              <label>{{actor.licenseName}}</label>
+                            </div>
+                        </div>
+                      
+                  </form>
+                 </div>
+              </div>
+                
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                  
+                  <div *ngIf="editable=='true'" class="personal-info col-md-12">
+                    <form>
+                      <div class="form-group row">
+                          <label class="col-4 col-form-label">Name:</label> 
+                          <div class="col-8">
+                            <input [(ngModel)]=actor.name name="name" class="form-control here">
+                          </div>
+                       </div> 
+                       <div class="form-group row">
+                          <label class="col-4 col-form-label">Email:</label> 
+                          <div class="col-8">
+                            <input [(ngModel)]=actor.email name="email" class="form-control here">
+                          </div>
+                       </div> 
+                       <div class="form-group row">
+                          <label class="col-4 col-form-label">Mobile No:</label> 
+                          <div class="col-8">
+                            <input [(ngModel)]=actor.mobile name="mobile" class="form-control here">
+                          </div>
+                       </div> 
+                       <div class="form-group row">
+                          <label class="col-4 col-form-label">Address:</label> 
+                          <div class="col-8">
+                            <input [(ngModel)]=actor.address name="address" class="form-control here">
+                            </div>
+                       </div> 
+                        
+                        <div *ngIf="role != 'deliveryBoy'">
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Location:</label> 
+                                <div class="col-8">
+                                  <input [(ngModel)]=actor.location name="location" class="form-control here">
+                                </div>
+                             </div> 
+                        </div>
+
+                        <div *ngIf="role == 'charity'">
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label">Food Requirement</label> 
+                                <div class="col-8">
+                                  <input [(ngModel)]=actor.foodRequirement name="foodRequirement" class="form-control here">
+                                  </div>
+                             </div> 
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Username:</label> 
+                            <div class="col-8">
+                                <input [(ngModel)]=actor.username name="username" class="form-control here">
+                              </div>
+                         </div> 
+                        
+                          <div class="form-group row">
+                              <label *ngIf="role == 'restaurant'" class="col-4 col-form-label">Certificate No:</label>
+                              <label *ngIf="role == 'charity'" class="col-4 col-form-label">Certificate No:</label>
+                              <label *ngIf="role == 'deliveryBoy'" class="col-4 col-form-label">License No:</label>
+                          
+                              <div *ngIf="role != 'deliveryBoy'" class="col-8">
+                                <input [(ngModel)]=actor.certificateNo name="certificateNo" class="form-control here">
+                              </div>
+                              <div *ngIf="role == 'deliveryBoy'" class="col-8">
+                                <input [(ngModel)]=actor.licenseNo name="licenseNo" class="form-control here">
+                              </div>
+                          </div>
+                        
+                          <div class="form-group row">            
+                              <label *ngIf="role == 'restaurant'"class="col-4 col-form-label">Certificate Name:</label>
+                              <label *ngIf="role == 'charity'" class="col-4 col-form-label">Certificate Name:</label>
+                              <label *ngIf="role == 'deliveryBoy'" class="col-4 col-form-label">License Name:</label>
+                            
+                              <div *ngIf="role != 'deliveryBoy'" class="col-8">              
+                                <input [(ngModel)]=actor.certificateName name="certificateName" class="form-control here">
+                              </div>
+                              <div *ngIf="role == 'deliveryBoy'" class="col-8">              
+                                <input [(ngModel)]=actor.licenseName name="licenseName" class="form-control here">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="offset-4 col-8">
+                              <input type="button" class="btn btn-primary b1" value="Save Changes" (click)="update()">
+                              <input type="reset" class="btn btn-default" value="Cancel" (click)="edit()">
+                            </div>
+                          </div>
+
+                    </form>
+                   </div>
+                </div>
+                  
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+

@@ -1,0 +1,187 @@
+version: '2'
+
+services:
+  feedol-ui:
+    image: feedol-ui:1.0
+    build: feedol-ui/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 4200:4200
+
+  eureka-server:
+    image: eureka-server:1.0
+    build: eureka-server/
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8761:8761
+
+  config-server:
+    image: config-server:1.0
+    build: config-server/
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8888:8888
+
+  zuul-api:
+    image: zuul-api:1.0
+    build: zuul-api/
+    depends_on:
+      - config-server
+      - eureka-server
+      - registration-service
+      - authentication-service
+      - routing-service
+      - restaurant-service
+      - charity-service
+      - deliveryboy-service
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8000:8000
+
+  registration-service:
+    image: registration-service:1.0
+    build: registration-service/
+    depends_on:
+      - config-server
+      - eureka-server
+      - mysql
+      - rabbitmq
+      - routing-service
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8080:8080
+
+  authentication-service:
+    image: authentication-service:1.0
+    build: authentication-server/
+    depends_on:
+      - config-server
+      - eureka-server
+      - mysql
+      - rabbitmq
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8060:8060
+
+  routing-service:
+    image: routing-service:1.0
+    build: routing-service/
+    depends_on:
+      - config-server
+      - eureka-server
+      - neo4j
+      - rabbitmq
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8050:8050
+
+  restaurant-service:
+    image: restaurant-service:1.0
+    build: restaurant-service/
+    depends_on:
+      - config-server
+      - eureka-server
+      - mongo
+      - rabbitmq
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8090:8090
+
+  charity-service:
+    image: charity-service:1.0
+    build: charity-service/
+    depends_on:
+      - config-server
+      - eureka-server
+      - mongo
+      - rabbitmq
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8070:8070
+
+  deliveryboy-service:
+    image: deliveryboy-service:1.0
+    build: deliveryBoy-service/
+    depends_on:
+      - config-server
+      - eureka-server
+      - mongo
+      - rabbitmq
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8040:8040
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=Destiny1!
+    container_name: mysql
+    network_mode: host
+    hostname: localhost
+    entrypoint:
+      sh -c "echo 'CREATE DATABASE IF NOT EXISTS authorizationService; CREATE DATABASE IF NOT EXISTS registrationService;' > /docker-entrypoint-initdb.d/init.sql;/usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+#   volumes:
+#     - ../data/mysql:/var/lib/mysql
+
+  mongo:
+    image: mongo:3.6
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 27017:27017
+#   volumes:
+#     - ../data/mongo:/data/db
+
+  rabbitmq:
+    image: rabbitmq:3.7.5-management
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 6085e2412b6fa88647466c6a81c0cea0
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_VHOST: /
+#     volumes:
+#       - ../data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
+
+  neo4j:
+    image: neo4j:3.0
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      - NEO4J_AUTH=neo4j/root123
+#   volumes:
+#     - ../data/neo4j/data:/data
+#     - ../data/neo4j/logs:/logs
+

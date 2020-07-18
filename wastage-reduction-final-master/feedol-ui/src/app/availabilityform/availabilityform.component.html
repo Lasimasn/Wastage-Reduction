@@ -1,0 +1,84 @@
+<div class="w3-card-4 w3-white" style="padding: 20px">
+  <div class="row">
+    <div class="col-md-3 ">
+      <div class="form-group ">
+        <label><img src="../../assets/img/salad.png" height="30px" />&nbsp;&nbsp;Veg</label>
+        <input type="number" class="form-control" name="veg" [(ngModel)]="veg">
+      </div>
+    </div>
+    <div class="col-md-3 ">
+        <label><img src="../../assets/img/turkey.png" height="30px" />&nbsp;&nbsp;Non-Veg</label>
+        <input type="number" class="form-control" name="nonveg" [(ngModel)]="nonveg">
+    </div>
+    <div class="col-md-2">
+        <label><img src="../../assets/img/weighing-scale.png" height="30px" />&nbsp;&nbsp;Total</label><br/>
+        <input type="number" value="{{ veg+nonveg }}"  class="form-control" readonly />
+    </div>
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-success" style="margin-top: 32px" (click)="updateRestaurantActivity()" >
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;
+          Submit
+        </button>
+        &nbsp;&nbsp;
+        <a href="/AvailabilityformComponent#status" data-toggle="modal" data-target="#status" class="w3-btn w3-pink w3-round w3-small" style="margin-top: 32px" >
+          <i class="fa fa-history" aria-hidden="true"></i>&nbsp;
+          Status
+        </a>
+    </div>
+  </div>       
+</div>
+
+ <!--Modal Code-->
+            <!-- Button trigger modal-->
+
+                  <!--Modal: modalPush-->
+                  <div class="modal fade" id="status" aria-hidden="true">
+                    <div class="modal-dialog modal-notify modal-info" role="document">
+                      <!--Content-->
+                      <div class="modal-content text-center">
+                        <!--Header-->
+                        <div class="modal-header d-flex justify-content-center">
+                          
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                          
+                          <div class="form-group row">
+                            <div class="col-sm-6 col-form-label">
+                            <label class="fa fa-user" style="color: #343A40"> Food Availability</label>
+                          </div>
+                            <div class="col-sm-6">
+                              <label>{{foodStatus.logs.restaurantStatus.foodAvailability}}</label>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-sm-6 col-form-label">
+                            <label class="fa fa-user" style="color: #343A40"> Delivery Boy Name</label>
+                          </div>
+                            <div class="col-sm-6">
+                              <label>{{foodStatus.logs.restaurantStatus.deliveryBoyName}}</label>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-sm-6 col-form-label">
+                            <label class="fa fa-phone" style="color: #343A40"> Delivery Boy Mobile</label>
+                          </div>
+                            <div class="col-sm-6">
+                              <label>{{foodStatus.logs.restaurantStatus.mobile}}</label>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer flex-center">
+                          <button data-dismiss="modal" class="btn" style="background-color: #343A40; color: white;">Close</button>
+                        </div>
+                      </div>
+                      <!--/.Content-->  
+                    </div>
+                  </div>
+                <!--End of Modal-->

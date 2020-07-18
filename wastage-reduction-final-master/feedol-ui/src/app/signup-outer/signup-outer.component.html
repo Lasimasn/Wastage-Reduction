@@ -1,0 +1,28 @@
+<div class="register p-5">
+  <div class="container p-5 ">
+      <div class="row pt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 border bgOpacity w3-card-2" style="border-radius: 20px;">
+     
+          <!-- <div class="text-center"> -->
+              <label class="text-center pt-3 pb-0" style="font-size: 35px;width: 100%;"><b>REGISTER</b></label><br>
+          <!-- </div> -->
+     
+          <div class="form-check w3-center">
+            <!-- &nbsp; &nbsp;&nbsp; -->
+            <label class="form-check-label w3-center w3-large" for="radio1">
+            <input type="radio" class="form-check-input"  id="radio1" name="optradio" value="restaurant" [(ngModel)]="role">&nbsp;&nbsp;<b>Restaurant</b>
+            </label>
+            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="form-check-label w3-large" for="radio2">
+            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="charity" [(ngModel)]="role">&nbsp;&nbsp;<b>Charity</b>
+            </label>
+          </div>
+     
+          <app-sign-up (clickEvent)="signup($event)"></app-sign-up>
+     
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+     </div>
+   </div>  

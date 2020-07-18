@@ -1,0 +1,26 @@
+<div class="bg">
+  <div class="container p-5 ">
+    <div class="row pt-5 ">
+      <div class="col-md-3 pt-5"></div>
+      
+      <div class="col-md-6 border bgOpacity p-4 w3-card-2" style="border-radius: 20px;">
+        <label class="text-center pt-3 pb-0 w3-center" style="font-size: 35px;width: 100%;"><b>LOGIN</b></label>
+        <div class="container"><br>
+          <label class="w3-large"><b>Username</b></label><br>
+          <input type="text" #username name="username" placeholder="Enter user name..." class="form-control"><br>
+          <label class="w3-large"><b>Password</b></label><br>
+          <input type="password" #password name="pwd" placeholder="Enter Password.." class="form-control"><br>
+          <div class="text-center m-3">
+            <button class="btn bg-dark btn-secondary w3-large"
+              (click)="login(username.value, password.value)">LOGIN</button>
+          </div>
+
+          <div class="text-primary text-right m2 w3-large" data-dismiss="modal" routerLink="/SignUpOuter"
+            style="cursor: pointer;"><b>New User? Click here</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+</div>

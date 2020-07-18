@@ -1,0 +1,16 @@
+<div class="container left" *ngIf="i%2==0">
+  <div class="content" style= "background-color: #296678; opacity: 0.8; color: antiquewhite">
+    <h2><b>{{restaurant.restaurantName}}</b></h2>
+      <button class="btn btn-success" (click)="onPicked(restaurant.username)" *ngIf="restaurantLogs == null && show">Picked</button>
+      <!-- <button class="btn btn-danger">Rejected</button> -->
+    <p>{{restaurant.location}}</p>
+  </div>
+</div>
+<div class="container right" *ngIf="i%2==1">
+    <div class="content" style= "background-color: #296678; opacity: 0.8; color: antiquewhite">
+      <h2><b>{{restaurant.restaurantName}}</b></h2>
+      <button class="btn btn-success" (click)="onPicked(restaurant.username)"*ngIf="restaurantLogs == null && show">Picked</button>
+      <!-- <button class="btn btn-danger">Rejected</button> -->
+      <p>{{restaurant.location}}</p>
+    </div>
+  </div>

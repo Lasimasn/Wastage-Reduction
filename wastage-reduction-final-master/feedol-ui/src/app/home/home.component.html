@@ -1,0 +1,168 @@
+<!-- Header Image -->
+<div style="width: 100%">
+  <!-- <img src="assets/img/children.jpg" style="opacity: 1;min-height: 300px" width="100%"> -->
+
+
+
+  <div class="hero">
+    <div class="hero-text">
+      <h1 class="p-4">You can Make a Difference, So Why don't you?</h1>
+      <div class="title-button p-2">
+        <button class="btn btn-dark btn-lg" (click)="restaurantSetRole()" data-toggle="modal" data-target="#signUp" style="width: 250px;"><img
+            src="assets/img/donate.png" width="40px" height="40px" />Want To
+          Donate?</button>
+
+        <button class="btn btn-warning btn-lg" (click)="charitySetRole()" data-toggle="modal" data-target="#signUp" style="width: 250px;"><img
+            src="assets/img/want.png" width="40px" height="40px" /> Want Food?</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal Code-->
+<div class="modal fade" id="signUp">
+  <div class="modal-dialog">
+    <div class="modal-content m-auto">
+      <div class="modal-body">
+        <div class="container">
+          <div class="border bgOpacity">
+            <h3 class="text-center">SIGNUP</h3>
+            <app-sign-up (clickEvent)="signup($event)"></app-sign-up>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br/>
+
+<div class="w3-padding w3-container">
+  <h1 class="w3-center"><b><span class="w3-text-yellow">What </span>We Do</b></h1>
+  <br/>
+  <div class="container about">
+  <p>
+      Feed'Ol is a non-profit organisation working on a mission to eradicate hunger and food-wastage. We work towards getting surplus meals from restaurants and corporate cafeterias and serve it to the underserved. We redistribute nutritious meals to charitable organisations who don’t have adequate or regular access to food.
+    </p>
+  </div>
+  </div>
+  <br/>
+
+
+<!--Cards-->
+<div class="wrapper">
+  <h1 class="w3-center heading"><b>196 Million Indians are hungry</b></h1>
+  <h2 class="w3-center"><b><span class="w3-text-yellow">Here's how Feed'Ol is changing this</span></b></h2>
+
+  <div class="row card-row">
+			<div class="col-md-4" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+					<div class="front" style="background-image: url(../../assets/img/resss.jpg);">
+					</div>
+					<div class="back">
+						<div class="inner" style="color:black;">
+						  <h3><b>More than 1,000 partner Restaurants</b></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+					<div class="front" style="background-image: url(../../assets/img/charity1.jpeg)">
+					</div>
+					<div class="back" >  
+						<div class="inner" style="color:black;">
+							<h3><b>30,000 people fed</b></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+					<div class="front" style="background-image: url(../../assets/img/char.jpg)">
+					</div>
+					<div class="back" >
+						<div class="inner" style="color:black;">
+							<h3><b>1000+ Volunteers </b></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+ </div>
+<!--End of Cards-->
+
+
+<!-- Resurant Slide Show For Home -->
+<app-restaurant-slider></app-restaurant-slider>
+<!-- End Of Resurant Slide Show For Home -->
+
+
+<!-- Charity Slider -->
+<app-charity-slider></app-charity-slider>
+<!-- End Of Charity Slider-->
+
+<div class="w3-padding-64">
+  <h1 class="w3-center "><b><span class="w3-text-yellow">Our</span> Team</b></h1>
+  <br/>
+  <div class="container p-5">
+      <div class="row w3-padding">
+
+        <div class="col-md-3">
+            <div class="container1">
+                <img class="image w3-circle" src="../../assets/img/mukesh.jpg" alt="Avatar"  style="width:100%;height: 250px">
+                <div class="middle">
+                  <h5>Mukesh Dalavai</h5>
+                  <h6>+91-9944896088</h6>
+                  <span>
+                    <a href="https://www.linkedin.com/in/mukesh-dalavai/"><img src="../../assets/img/linkedin.png" height="25px"/></a>
+                    &nbsp;&nbsp;
+                    <a href="https://www.facebook.com/mukeshdalavai"><img src="../../assets/img/facebook.png" height="25px"/></a>
+                    &nbsp;&nbsp;
+                    <a href="https://www.instagram.com/mukesh_dalavai"><img src="../../assets/img/instagram.png" height="25px"/></a>
+                  </span>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-md-3" style="margin-top: 10px" > 
+          <div class="container1">
+              <img class="image w3-circle" src="../../assets/img/saranya.jpg" alt="Avatar"  sstyle="width:100%;height: 250px">
+              <div class="middle">
+                <h5>Arathi M</h5>
+                <h6>+91-9539808866</h6>
+                <span>
+                  <img src="../../assets/img/facebook.png" height="25px"/>
+                  &nbsp;&nbsp;
+                  <img src="../../assets/img/instagram.png" height="25px"/>
+                  &nbsp;&nbsp;
+                  <img src="../../assets/img/google-plus.png" height="25px"/>
+                </span>
+              </div>
+            </div>
+      </div>
+
+        <div class="col-md-3">
+            <div class="container1">
+                <img class="image w3-circle" src="../../assets/img/ashu.jpg" alt="Avatar"  sstyle="width:100%;height: 250px">
+                <div class="middle">
+                  <h5>Ashutosh Khamari</h5>
+                  <h6>+91-9439191461</h6>
+                  <span>
+                    <img src="../../assets/img/facebook.png" height="25px"/>
+                    &nbsp;&nbsp;
+                    <img src="../../assets/img/instagram.png" height="25px"/>
+                    &nbsp;&nbsp;
+                    <img src="../../assets/img/google-plus.png" height="25px"/>
+                  </span>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
+
+
+<app-home-graph></app-home-graph>

@@ -1,0 +1,134 @@
+<div class="w3-display-container w3-green" style="height:800px;">
+  <img src="../../assets/img/donating-food.jpg" height="100%" width="100%"/>
+  <div class="w3-display-middle w3-center">
+    <span class="hd">Welcome to {{charity.name}}</span> <br><br>
+    <a href="DashboardComponent#charityLogs" class="w3-btn w3-yellow w3-large w3-round " >
+      <i class="fa fa-list" aria-hidden="true"></i>&nbsp;Charity Logs</a>
+      <button (click)="fetchStatus()" data-toggle="modal" data-target="#statusModal" class="w3-btn w3-yellow w3-large w3-round " >
+        <i class="fa fa-list" aria-hidden="true"></i>&nbsp;Food Status</button>
+  </div>
+</div>
+
+
+<div class="container w3-padding-64" id="charityLogs" *ngIf="charityLogs!=undefined">
+    <h1 class="w3-center"><b><i class="fa fa-list" aria-hidden="true"></i>&nbsp;<span class="w3-text-yellow"></span>Logs</b></h1>  
+  <div class="w3-padding-64" style="margin-top: -10px" >
+   
+
+    <!-- Single Assignment Log -->
+    
+    <div class="w3-card-4" style="margin: 10px" *ngFor="let item of charityLogs.logs">
+      <h3 class="w3-light-gray w3-padding">
+        <b>#{{item.id}}</b>
+        <!-- <button class="w3-btn w3-small w3-yellow w3-round w3-right" >Received</button> -->
+      </h3>
+      <div class="row w3-padding">
+       <div class="col-md-3">
+         <h5><span style="border-bottom: 2px solid yellow;font-weight: bold">Request</span> <span class="w3-text-yellow"> Date</span></h5>
+         <h6><i class="fa fa-clock w3-text-yellow" aria-hidden="true"></i>&nbsp;{{item.date}}</h6> 
+         <br/>
+         <h5><span style="border-bottom: 2px solid yellow;font-weight: bold">Recived</span> <span class="w3-text-yellow"> Time</span></h5>
+         <h6><i class="fa fa-clock w3-text-yellow" aria-hidden="true"></i>&nbsp;{{item.date}}</h6>
+       </div>
+       <div class="col-md-3 w3-small" >
+          <h5><span style="border-bottom: 2px solid yellow;font-weight: bold">Food</span> <span class="w3-text-yellow"> Requested</span></h5>
+          <h6>
+            <img src="../../assets/img/salad.png" height="20px" />&nbsp;&nbsp;Veg+&nbsp;
+            <img src="../../assets/img/turkey.png" height="20px" />&nbsp;&nbsp;Non Veg =&nbsp; 	
+            <img src="../../assets/img/weighing-scale.png" height="20px" />&nbsp;{{charity.foodRequirement}}</h6> 
+            <hr/>
+          <h5><span style="border-bottom: 2px solid yellow;font-weight: bold">Food</span> <span class="w3-text-yellow"> Received</span></h5>
+          <h6>
+            <img src="../../assets/img/salad.png" height="20px" />&nbsp;&nbsp;Veg+
+            <img src="../../assets/img/turkey.png" height="20px" />&nbsp;&nbsp;Non Veg =&nbsp; 	
+            <img src="../../assets/img/weighing-scale.png" height="20px" />&nbsp;{{item.charityStatus.foodAvailable}}</h6> 
+        </div>
+        <div class="col-md-2">
+            <h5><span style="border-bottom: 2px solid yellow;font-weight: bold">Delivery</span> <span class="w3-text-yellow"> Boy</span></h5>
+            <h6>
+              <img src="../../assets/img/scooter.png" height="20px" />&nbsp;&nbsp;{{item.charityStatus.deliveryBoyName}}
+              <br/>
+              <i class="fa fa-phone w3-text-yellow"></i>&nbsp;&nbsp;{{item.charityStatus.mobile}}
+            </h6>
+        </div>
+        <div class="col-md-4">
+          <div *ngIf="item.rating == 0">
+              <h5><span style="border-bottom: 2px solid #ffff00;font-weight: bold">Rating</span></h5>
+              <div class="form-group">
+                  <div class="rating" style="text-align: center">
+                    <input type="radio" id="star5" name="rating" value=5 #rated5 (click)="onRate(rated5.value, item.id)" /><label for="star5" title="Rocks!">5 stars</label>
+                    <input type="radio" id="star4" name="rating" value=4 #rated4 (click)="onRate(rated4.value, item.id)" /><label for="star4" title="Pretty good">4 stars</label>
+                    <input type="radio" id="star3" name="rating" value=3 #rated3 (click)="onRate(rated3.value, item.id)" ><label for="star3" title="Meh">3 star</label>
+                    <input type="radio" id="star2" name="rating" value=2 #rated2 (click)="onRate(rated2.value, item.id)" /><label for="star2" title="Kinda bad">2 stars</label>
+                    <input type="radio" id="star1" name="rating" value=1 #rated1 (click)="onRate(rated1.value, item.id)" /><label for="star1" title="Sucks big time">1 star</label> 
+                </div>
+              </div>
+          </div>
+          <div *ngIf="item.rating != 0">
+            <h5><span style="border-bottom: 2px solid #ffff00;font-weight: bold">Rating</span></h5>
+            <h4><img src="../../assets/img/starYellow.png" height="20px" />&nbsp;{{item.rating}}</h4>
+          </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!--Modal Code-->
+    <!--Modal Code-->
+            <!-- Button trigger modal-->
+
+                  <!--Modal: modalPush-->
+                  <div class="modal fade" id="statusModal" aria-hidden="true">
+                    <div class="modal-dialog modal-notify modal-info" role="document">
+                      <!--Content-->
+                      <div class="modal-content text-center">
+                        <!--Header-->
+                        <div class="modal-header d-flex justify-content-center">
+                          
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+
+                          <div class="form-group row">
+                            <div class="col-sm-6 col-form-label">
+                            <label class="lbl fa fa-user" style="color: #343A40"> Food Available</label>
+                          </div>
+                            <div class="col-sm-6">
+                              <label>{{foodStatus.logs.charityStatus.foodAvailable}}</label>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-sm-6 col-form-label">
+                            <label class="lbl fa fa-user" style="color: #343A40"> Delivery Boy Name</label>
+                          </div>
+                            <div class="col-sm-6">
+                              <label>{{foodStatus.logs.charityStatus.deliveryBoyName}}</label>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-sm-6 col-form-label">
+                            <label class="lbl fa fa-phone" style="color: #343A40"> Delivery Boy Mobile</label>
+                          </div>
+                            <div class="col-sm-6">
+                              <label>{{foodStatus.logs.charityStatus.mobile}}</label>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer flex-center">
+                          <button data-dismiss="modal" class="btn" style="background-color: #343A40; color: white;">Close</button>
+                        </div>
+                      </div>
+                      <!--/.Content-->  
+                    </div>
+                  </div>
+                <!--End of Modal-->

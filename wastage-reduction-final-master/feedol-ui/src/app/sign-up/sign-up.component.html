@@ -1,0 +1,17 @@
+<div class="p-4">
+	<label class="w3-large"><b>Username</b></label>
+	<input type="text" name="" class="form-control" #usernameR placeholder="Enter Your Name"><br>
+
+	
+	<label class="w3-large"><b>Email</b></label>
+	<input type="email" name="" class="form-control" #emailR placeholder="Enter Email"><br>
+	
+	<label class="w3-large"><b>Password</b></label>
+	<input type="Password" name="" class="form-control" #passwordR placeholder="Enter Password"><br>
+	
+	<label class="w3-large"><b>Confirm Password</b></label>
+	<input type="Password" name="" class="form-control" #confpaswordR placeholder="Confirm Password"><br>
+	<div class="text-center">
+			<button class="btn btn-dark w3-large" (click)="sendToOuter(usernameR.value, passwordR.value, emailR.value)">REGISTER</button>    
+	</div>
+</div>

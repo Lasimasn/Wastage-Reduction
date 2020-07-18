@@ -1,0 +1,51 @@
+<div class="w3-padding-64">
+  <h1 class="w3-center"><b><span class="w3-text-yellow">Partner </span>Restaurants</b></h1>
+  <br/><br/>
+
+<div class="row">
+  <div class="col-1 text-center" style="padding: 100px 0px">
+      <i class="fas fa-chevron-left w3-large" (click)="moveLeft()"></i>
+  </div>
+
+  <div class="col-10">
+    <drag-scroll #nav>
+      <div class="w3-card-4 p-3 mx-2" drag-scroll-item *ngFor="let item of restaurantArray">
+        <div class="text-center">
+          <img class="img-thumbnail"  data-toggle="modal" data-target="#viewRestaurant"  (click)="openView(item)" src="{{item.thumb}}"><br>
+          <label class="font-weight-bold" style="font-size: 15px">{{item.name}}</label>
+        </div>
+      </div>
+    </drag-scroll>
+  </div>
+      
+  <div class="col-1 text-center" style="padding: 100px 0px">
+      <i class="fas fa-chevron-right w3-large" (click)="moveRight()"></i>
+  </div>
+</div>
+
+<div class="modal fade" id="viewRestaurant">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container my-3">
+            <h2 class="text-center font-weight-bold py-1">{{name}}</h2>
+          <div class="container">
+            <div class="row">
+                <div class="col-md-4 m-auto">
+                    <img class="image" src="{{thumb}}" alt="No image">
+                  </div>
+                  <div class="col-md-8 data">
+                    <h4 class="font-weight-bold py-1">Address:</h4>
+                    <h5>{{address}}</h5>
+                    <h4 class="font-weight-bold py-1">Cuisines:</h4>
+                    <h5>{{cuisines}}</h5>
+                    <h4 class="font-weight-bold py-1">Timings:</h4>
+                    <h5>{{timings}}</h5>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

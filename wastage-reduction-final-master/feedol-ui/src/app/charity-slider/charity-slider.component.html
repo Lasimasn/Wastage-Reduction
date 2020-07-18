@@ -1,0 +1,49 @@
+<div class="w3-padding-64 parallax1">
+  <h1 class="w3-center "><b><span class="w3-text-yellow">Char</span><span class="w3-text-white">ity</span></b></h1>
+  <br/><br/>
+
+<div class="row">
+  <div class="col-1 text-center" style="padding: 100px 0px">
+      <i class="fas fa-chevron-left w3-large" (click)="moveLeft()"></i>
+  </div>
+
+  <div class="col-10">
+    <drag-scroll #nav>
+      <div class="w3-card-4 p-3 mx-2" drag-scroll-item  *ngFor="let item of charityArray">
+        <div class="text-center w3-white">
+          <img class="img-thumbnail" style="width: 200px; height: 200px" data-toggle="modal" data-target="#viewCharity"  (click)="openView(item)" src="{{item.img_url}}"><br>
+          <label class="font-weight-bold" style="font-size: 15px">{{item.charity_name}}</label>
+        </div>
+      </div>
+    </drag-scroll>
+  </div>
+      
+  <div class="col-1 text-center" style="padding: 100px 0px">
+      <i class="fas fa-chevron-right w3-large" (click)="moveRight()"></i>
+  </div>
+</div>
+
+<div class="modal fade" id="viewCharity">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container my-3">
+            <h2 class="text-center font-weight-bold py-1">{{charityName}}</h2>
+          <div class="container">
+            <div class="row">
+                <div class="col-md-4 m-auto">
+                    <img class="image" src="{{charityThumb}}" alt="No image">
+                  </div>
+                  <div class="col-md-8 data">
+                    <h4 class="font-weight-bold py-1">Address:</h4>
+                    <h5>{{charityAddress}}</h5>
+                    <h4 class="font-weight-bold py-1">Phone number:</h4>
+                    <h5>{{charityPhonenumber}}</h5>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

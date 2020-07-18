@@ -1,0 +1,19 @@
+.hd{
+    font-size: 60px;
+    text-shadow: 1px 1px gray;
+    font-weight: bold;
+}
+.hdSub{
+    text-shadow: 1px 1px gray;
+}
+.form-group{
+    font-size: 22px;
+}
+@media only screen and (max-width: 400px) {
+    .hd{
+        font-size: 40px;
+    }
+    .w3-display-middle{
+        padding-bottom: 300px;
+    }
+  }

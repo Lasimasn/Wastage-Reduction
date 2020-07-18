@@ -1,0 +1,21 @@
+ul li {
+   display:inline;
+   /* margin-left: 10px; */
+ }
+ h6 {
+   font-size: 12px;
+   margin-top: 40px;
+   margin-left: 45px;
+ }
+ .glyphicon {
+   font-size: 18px;
+ }
+ footer {
+   padding-bottom: 0px;
+ }
+ b{
+    font-size: 16px;
+ }
+ label{
+    font-size: 14px;
+ }
