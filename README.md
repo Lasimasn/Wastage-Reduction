@@ -13,13 +13,16 @@ A full end to end project for Wastage reduction
 
 Process To Start the Application.
 
-Pre-Requisites : UBUNTU 18.04/16.04 : Java 11 --- SETUP ENVIRONMENT ---
+Pre-Requisites : UBUNTU 18.04/16.04 : Java 11 
+
+--- SETUP ENVIRONMENT ---
 
 1.) Install Git
-
+---
 $ sudo apt update
 $ sudo apt install git
 $ git --version
+---
 2.) Install MAVEN
 
 $ sudo apt update
