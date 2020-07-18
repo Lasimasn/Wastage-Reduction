@@ -45,7 +45,7 @@ Pre-Requisites : UBUNTU 18.04/16.04
   
 1.) Open ubuntu terminal in any folder
 
-	$ git clone https://github.com/mukeshdalavai/wastage-reduction-final.git
+	$ git clone 'repository URL'
 
 2.) Navigate into wastage-reduction-final folder
 
