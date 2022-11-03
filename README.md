@@ -19,9 +19,11 @@ Pre-Requisites : UBUNTU 18.04/16.04 : Java 11
 
 1.) Install Git
 
+``` 
 $ sudo apt update
 $ sudo apt install git
 $ git --version
+```
 
 2.) Install MAVEN
 
